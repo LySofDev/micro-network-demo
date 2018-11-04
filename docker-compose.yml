@@ -6,6 +6,9 @@ services:
     build:
       context: ./foo
       dockerfile: Dockerfile
+    command: npm run start
+    environment:
+      - PORT=3000
     volumes:
       - ./foo:/app
 
@@ -13,5 +16,8 @@ services:
     build:
       context: ./bar
       dockerfile: Dockerfile
+    environment:
+      - HOST=foo
+      - PORT=3000
     volumes:
       - ./bar:/app
